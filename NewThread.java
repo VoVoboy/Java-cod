@@ -1,34 +1,32 @@
 package exp;
 
 /**
- * Created by RogueBoy on 08.12.2016.
+ * Created by RogueBoy on 09.12.2016.
  */
-public class NewThread implements Runnable {
+//Создать второй поток исполнения
+public class NewThread implements Runnable{
     Thread t;
 
     NewThread(){
-        // создать новый, второй поток исполнения
-        t = new Thread(this, "Демонстрационный поток");
+        t = new Thread(this, "Дочерний поток");
         System.out.println("Дочерний поток создан: " + t);
-        t.start(); //запустить поток исполнения
+        t.start();
     }
-    //Точка входа во второй поток исполнения
     public void run(){
-        try{
+        try {
             for(int i = 5; i > 0; i--){
                 System.out.println("Дочерний поток: " + i);
                 Thread.sleep(500);
             }
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             System.out.println("Дочерний поток прерван.");
         }
-        System.out.println("Дочерний поток прерван.");
+        System.out.println("Дочерний поток завершен.");
     }
 }
-
 class ThreadDemo {
     public static void main(String args[]){
-        new NewThread(); // создать новый поток
+        new NewThread();
 
         try {
             for(int i = 5; i > 0; i--){
@@ -38,6 +36,6 @@ class ThreadDemo {
         } catch (InterruptedException e) {
             System.out.println("Главный поток прерван.");
         }
-        System.out.println("Главный поток заверншён.");
+        System.out.println("Главный поток завершен.");
     }
 }
