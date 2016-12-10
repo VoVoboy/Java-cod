@@ -1,41 +1,58 @@
 package exp;
 
 /**
- * Created by RogueBoy on 09.12.2016.
+ * Created by RogueBoy on 10.12.2016.
  */
-//Создать второй поток исполнения
-public class NewThread implements Runnable{
+class NewThread implements Runnable {
+    String name;
     Thread t;
 
-    NewThread(){
-        t = new Thread(this, "Дочерний поток");
-        System.out.println("Дочерний поток создан: " + t);
+    NewThread(String threadname){
+        name = threadname;
+        t = new Thread(this, name);
+        System.out.println("Новый поток: " + t);
         t.start();
     }
     public void run(){
-        try {
+        try{
             for(int i = 5; i > 0; i--){
-                System.out.println("Дочерний поток: " + i);
-                Thread.sleep(500);
-            }
-        } catch (InterruptedException e) {
-            System.out.println("Дочерний поток прерван.");
-        }
-        System.out.println("Дочерний поток завершен.");
-    }
-}
-class ThreadDemo {
-    public static void main(String args[]){
-        new NewThread();
-
-        try {
-            for(int i = 5; i > 0; i--){
-                System.out.println("Главный поток: " + i);
+                System.out.println(name + ": " + i);
                 Thread.sleep(1000);
             }
-        } catch (InterruptedException e) {
+        }catch(InterruptedException e){
+            System.out.println(name + " прерван.");
+        }
+        System.out.println(name + " завершено.");
+    }
+}
+class DemoJoin {
+    public static void main(String args[]){
+        NewThread ob1 = new NewThread("Один");
+        NewThread ob2 = new NewThread("Два");
+        NewThread ob3 = new NewThread("Три");
+
+        System.out.println("Поток Один запущен: "
+                + ob1.t.isAlive());
+        System.out.println("Поток Два запущен: "
+                + ob2.t.isAlive());
+        System.out.println("Поток Три запущен: "
+                + ob3.t.isAlive());
+        //ожидать завеошения потоков  исполнения
+        try{
+            System.out.println("Ожидание завершнения потоков.");
+            ob1.t.join();
+            ob2.t.join();
+            ob3.t.join();
+        }catch(InterruptedException e){
             System.out.println("Главный поток прерван.");
         }
+        System.out.println("Поток Один запущен: "
+                + ob1.t.isAlive());
+        System.out.println("Поток Два запущен: "
+                + ob2.t.isAlive());
+        System.out.println("Поток Три запущен: "
+                + ob3.t.isAlive());
+
         System.out.println("Главный поток завершен.");
     }
 }
