@@ -5,7 +5,7 @@ package Step;
  */
 public class Callme2 {
     synchronized void call(String msg){
-        System.out.println("[" + msg);
+        System.out.print("[" + msg);
         try {
             Thread.sleep(1000);
         }catch(InterruptedException e){
