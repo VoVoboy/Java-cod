@@ -1,0 +1,39 @@
+package r4r;
+
+public class SolutionGa {
+
+	private int nol;
+	private int odin;
+	
+	public int soltion(int N){
+		
+		String fa = Integer.toBinaryString(N);
+		
+			
+		System.out.println(fa.toCharArray());
+			
+			for(int i=0; i<fa.length(); i++){
+				System.out.println("Значение выводимое " + fa.charAt(i));
+				
+				if(fa.charAt(i) == '0') ++nol;
+				if(fa.charAt(i) == '1') ++odin;
+			}
+			
+			
+		
+		System.out.println("Насчитал " + nol + " нулей ");
+		System.out.println("Насчитал " + odin + " едениц ");
+		System.out.println(fa);
+		
+		return 1;
+	}
+}
+package r4r;
+
+public class Dadfec extends SolutionGa{
+	
+	public static void main(String args[]){
+		Dadfec da = new Dadfec();
+		da.soltion(13);
+	}
+}
