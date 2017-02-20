@@ -1,0 +1,47 @@
+package t5t;
+
+
+
+public class SolutionGa {
+
+	private int guf=0; //переменная для подсчёта количества нулей
+	private int fuf[]; //массив куда записываются числа количества вместе стоящих нулей
+	
+		
+	public int soltion(int N){ 
+		
+		String fa = Integer.toBinaryString(N); //преобразование  натурального числа в бинарное
+		
+			
+		System.out.println(fa.toCharArray()); //собственно тот самый метод который ты мне посоетовал, отлично тут зашол
+			
+			for(int i=0; i<fa.length(); i++){ //цыкл предназначеный для анализа каждого элемента строчного массива
+				if(fa.charAt(i) == '0') {  // если символ '0' то производится инкремента переменной guf
+					++guf;   
+				} else {
+					
+					fuf.add(guf);   //строка подчёркнута красным, собственно тут вся проблема, немогу добавить
+									//значение guf в подготовленный массив fuf[]
+					guf=0;          //обнуляю переменную, для повторного использования в условном операторе
+				}
+			}
+			
+		System.out.println(fuf); //вывод массива
+								 //вывод максимального значения не делал, так как не могу справится с этой проблемой
+			
+		
+		return 1;
+	}
+}
+package t5t;
+
+public class StartGa extends SolutionGa{
+
+	
+	public static void main(String[] args) {
+		
+		StartGa s = new StartGa();
+		s.soltion(13);
+	}
+
+}
