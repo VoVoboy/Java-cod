@@ -1,0 +1,23 @@
+package y6y;
+
+public class LogicCore {
+	
+	private int A[] = {9, 3, 9, 3, 9, 7, 9};
+	
+	public int solution(int[] A) {
+		
+		for(int i = 0; i < A.length; i++)
+			for(int j = 0; j < A.length; j++){
+				
+				if(A[i] != A[j]){
+					System.out.println(A[i]);
+					
+					
+				} else {
+					
+					break;
+				}
+			}
+		
+	}
+}
