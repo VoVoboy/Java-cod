@@ -1,0 +1,19 @@
+class Solution {
+    
+    private int f = 0;
+    
+    public int solution(int[] A) {
+        
+        for(int i = 0; i < A.length; i++){
+            for(int j = 0; j < A.length; j++){
+                if(A[i] != A[j]){
+                    f = A[i];
+                    //System.out.println(f);
+                    } else {
+                        break;
+                        }
+                }
+            }
+            return f;
+    }
+}
