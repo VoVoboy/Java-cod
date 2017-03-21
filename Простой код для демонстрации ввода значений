@@ -1,0 +1,21 @@
+package t5t;
+
+
+import java.util.Scanner;
+import java.util.Scanner.*;
+
+
+
+public class Speaker {
+	
+	public static void main(String[] args){
+		
+		Scanner in = new Scanner(System.in); // обеспечить считывание вводимых значений
+		System.out.print("Введите имя: ");  
+		String name = in.nextLine(); // записать вводимое символьное значение
+		System.out.print("Введите возраст: ");
+		int age = in.nextInt(); // записать вводимое целочисленное значение
+		System.out.println("Ваше имя: " + name + " Ваш возраст: " + age); // вывести все записанные переменные
+		
+	}
+}
